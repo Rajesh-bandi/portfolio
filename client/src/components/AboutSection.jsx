@@ -8,30 +8,29 @@ export const AboutSection = () => {
   const [counter, setCounter] = useState(0);
 
   const achievements = [
-    { number: "3", label: "Projects", icon: <Briefcase className="h-5 w-5" />, suffix: "+" },
+    { number: "9.0", label: "CGPA", icon: <Target className="h-5 w-5" />, suffix: "/10" },
     { number: "2027", label: "Graduation", icon: <Calendar className="h-5 w-5" />, suffix: "" },
-    { number: "7.0", label: "CGPA", icon: <Target className="h-5 w-5" />, suffix: "/10" },
-    { number: "2", label: "Certifications", icon: <Star className="h-5 w-5" />, suffix: "+" }
+    { number: "250", label: "DSA Solved", icon: <Briefcase className="h-5 w-5" />, suffix: "+" },
+    { number: "Top 5%", label: "NPTEL Java", icon: <Star className="h-5 w-5" />, suffix: "" }
   ];
 
   const techStack = [
-    { category: "Languages", items: ["C", "Java", "Python", "HTML", "CSS", "JavaScript"] },
-    { category: "Frameworks", items: ["Bootstrap", "React", "Node.js", "Express"] },
-    { category: "Database & Tools", items: ["MongoDB", "Git", "OpenWeatherMap API"] }
+    { category: "Languages", items: ["Java", "C", "JavaScript", "SQL"] },
+    { category: "Backend & Web", items: ["Spring Boot", "Spring Security", "Spring Data JPA", "REST APIs", "JWT Auth", "WebSockets"] },
+    { category: "DevOps & Cloud", items: ["Docker", "GitHub Actions", "Jenkins", "AWS (ECS, ECR, ALB)", "MySQL", "Git"] }
   ];
 
-  const features = ["Teamwork", "Communication", "Problem-Solving", "Time Management", "Adaptability", "Active Learner"];
+  const features = ["Data Structures & Algorithms", "OOP & DBMS", "Spring Boot & Security", "Docker & AWS Cloud", "Problem Solving", "CI/CD Automation"];
 
   const socialLinks = [
-    { icon: <Github className="h-5 w-5" />, href: "https://github.com/muraliQ4" },
-    { icon: <Linkedin className="h-5 w-5" />, href: "https://www.linkedin.com/in/murali-sanaboina" },
-    { icon: <Instagram className="h-5 w-5" />, href: "https://www.instagram.com/murali.sanaboina?igsh=NWVxdXF6c3I0eGY0" }
+    { icon: <Github className="h-5 w-5" />, href: "https://github.com/Rajesh-bandi" },
+    { icon: <Linkedin className="h-5 w-5" />, href: "https://www.linkedin.com/in/bandi-rajesh-5b401829a/" }
   ];
 
   const tabContent = {
-    personal: "Passionate B.Tech Computer Science student from Khandavalli, Andhra Pradesh, dedicated to creating innovative digital solutions. Active member of college dev circles, regularly participating in peer-led debugging and problem-solving sessions.",
-    professional: "Currently pursuing B.Tech in Computer Science and Engineering at SRKR Engineering College, Bhimavaram (CGPA: 7.0/10). Built 3+ projects using modern web technologies and participated in technical events including Machine Learning and Full Stack Development workshops.",
-    approach: "I believe in continuous learning and hands-on experience. My approach emphasizes teamwork, effective communication, and adaptability. Eager to contribute to real-world solutions in Cloud, Full Stack Development, and Cybersecurity."
+    personal: "B.Tech Computer Science and Engineering student (2023 – 2027) at SRKR Engineering College, Andhra Pradesh with an outstanding CGPA of 9.0 / 10. Solved over 250+ problem solving challenges across LeetCode, HackerRank, and GeeksforGeeks.",
+    professional: "Specialized in backend software engineering with Spring Boot, Spring Security, JWT authentication, and WebSockets. Experienced in cloud deployments using Docker, GitHub Actions CI/CD pipelines, and AWS ECS Fargate. NPTEL Certified in Java (Scored 75%, Top 5% nationwide).",
+    approach: "Active participant in SRKR technical events and hackathons (VedicVision Hackathon - Yoga Routine Generator). Driven by modular design patterns, robust handler registries, and automated cloud infrastructure."
   };
 
   useEffect(() => {
@@ -45,18 +44,18 @@ export const AboutSection = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Programmatic download function
+  // Programmatic download function for new resume
   const handleDownload = () => {
     const link = document.createElement('a');
-    link.href = '/Murali-Krishna-Resume.pdf'; // Must be in public folder
-    link.download = 'Murali-Krishna-Resume.pdf';
+    link.href = '/myresume.pdf';
+    link.download = 'Rajesh-Bandi-Resume.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
   return (
-    <section id="about" className="relative py-16 md:py-28 px-4 sm:px-6 lg:px-12 bg-gradient-to-br from-background via-background to-primary/5 overflow-hidden">
+    <section id="about" className="relative py-16 md:py-28 px-4 sm:px-6 lg:px-12 overflow-hidden z-10">
       {/* Background Shapes */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute w-72 sm:w-96 h-72 sm:h-96 bg-primary/5 rounded-full blur-3xl transition-all duration-1000 ease-out" style={{ transform: `translate(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px)` }} />
@@ -101,7 +100,7 @@ export const AboutSection = () => {
                   {/* Profile Image */}
                   <div className="relative flex-shrink-0">
                     <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-2xl transition-all duration-500 group-hover:border-primary/40 group-hover:scale-105 md:group-hover:scale-110 relative">
-                      <img src="/profile-logo.png" alt="Murali Krishna" className="w-full h-full object-cover" />
+                      <img src="/myimage.png" alt="Rajesh Bandi" className="w-full h-full object-cover" />
                       <div className="absolute -bottom-2 -right-2 w-6 h-6 sm:w-8 sm:h-8 bg-green-500 rounded-full border-4 border-background flex items-center justify-center">
                         <div className="w-2 h-2 bg-green-300 rounded-full animate-pulse" />
                       </div>
@@ -110,8 +109,8 @@ export const AboutSection = () => {
 
                   {/* Achievements */}
                   <div className="flex-1 text-center md:text-left">
-                    <h2 className="text-2xl sm:text-3xl font-bold mb-1 sm:mb-2">Sanaboina Murali Krishna</h2>
-                    <p className="text-primary text-base sm:text-lg font-semibold mb-3 sm:mb-4">B.Tech CS Student</p>
+                    <h2 className="text-2xl sm:text-3xl font-bold mb-1 sm:mb-2">Rajesh Bandi</h2>
+                    <p className="text-primary text-base sm:text-lg font-semibold mb-3 sm:mb-4">B.Tech CS Student @ SRKR Engineering College (CGPA: 9.0/10)</p>
                     <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
                       {achievements.map((achievement, index) => (
                         <div key={index} className={`p-2 sm:p-3 rounded-xl bg-background/50 border border-border transition-all duration-300 hover:scale-105 hover:border-primary/30 ${counter === index ? 'bg-primary/10 border-primary/50' : ''}`}>

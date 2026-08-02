@@ -9,28 +9,28 @@ export const HeroSection = () => {
   const [displayedCode, setDisplayedCode] = useState("");
 
   const codeSnippets = [
-    "import { DeveloperProfile } from 'murali.dev';",
+    "import { DeveloperProfile } from 'rajesh.dev';",
     "",
     "const developer = new DeveloperProfile({",
-    "  name: 'Murali Krishna',",
+    "  name: 'Rajesh Bandi',",
     "  education: 'B.Tech CSE @ SRKR Engineering College',",
-    "  stack: ['React', 'Node.js', 'MongoDB', 'JavaScript'],",
-    "  focus: 'Cloud, Full Stack & Cybersecurity',",
-    "  cgpa: '7.0/10'",
+    "  stack: ['Java', 'Spring Boot', 'React.js', 'AWS', 'Docker'],",
+    "  focus: 'Backend, WebSockets, Cloud & DevOps',",
+    "  cgpa: '9.0/10'",
     "});",
     "",
     "await developer.buildProjects();",
-    "// Anime Platform, StudyHub, Weather Dashboard",
+    "// TunnelFlow, Secure Notes App, Wander AWS Pipeline",
     "",
     "developer.explore();",
-    "console.log('🚀 Ready to create innovative solutions!');"
+    "console.log('🚀 Ready to build scalable software & cloud systems!');"
   ];
 
   const achievements = [
-    { number: "2027", label: "Graduation Year", icon: <Calendar className="h-3 w-3" /> },
-    { number: "3+", label: "Projects Built", icon: <Code className="h-3 w-3" /> },
-    { number: "7.0", label: "CGPA", icon: <Award className="h-3 w-3" /> },
-    { number: "2+", label: "Certifications", icon: <Shield className="h-3 w-3" /> }
+    { number: "9.0", label: "CGPA", icon: <Award className="h-3 w-3" /> },
+    { number: "250+", label: "Problems Solved", icon: <Code className="h-3 w-3" /> },
+    { number: "3", label: "Major Projects", icon: <Rocket className="h-3 w-3" /> },
+    { number: "Top 5%", label: "NPTEL Java", icon: <Shield className="h-3 w-3" /> }
   ];
 
   useEffect(() => {
@@ -55,12 +55,11 @@ export const HeroSection = () => {
   }, [displayedCode, currentCodeLine]);
 
   const handleViewResume = () => {
-    // Open resume PDF in new tab
-    window.open('/Murali-Krishna-Resume.pdf', '_blank');
+    window.open('/myresume.pdf', '_blank');
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-background via-background/95 to-primary/10" ref={ref}>
+    <section id="hero" className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-background via-background/95 to-primary/10 grid-bg z-10" ref={ref}>
       
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute inset-0 opacity-30">
@@ -92,8 +91,26 @@ export const HeroSection = () => {
           />
         ))}
         
-        <motion.div className="absolute top-20 left-10 w-72 h-72 rounded-full bg-gradient-to-r from-primary/10 to-purple-600/10 blur-[100px]" animate={{ x: [0, 30, 0], y: [0, -30, 0], scale: [1, 1.1, 1] }} transition={{ duration: 15, repeat: Infinity }} />
-        <motion.div className="absolute bottom-20 right-10 w-72 h-72 rounded-full bg-gradient-to-r from-cyan-400/10 to-emerald-500/10 blur-[100px]" animate={{ x: [0, -40, 0], y: [0, 40, 0], scale: [1, 1.2, 1] }} transition={{ duration: 20, repeat: Infinity, delay: 2 }} />
+        {/* Enhanced Orbs */}
+        <motion.div className="absolute top-20 left-10 w-96 h-96 rounded-full bg-gradient-to-r from-primary/15 to-purple-600/15 blur-[120px]" animate={{ x: [0, 40, 0], y: [0, -40, 0], scale: [1, 1.15, 1] }} transition={{ duration: 15, repeat: Infinity }} />
+        <motion.div className="absolute bottom-20 right-10 w-96 h-96 rounded-full bg-gradient-to-r from-cyan-400/15 to-emerald-500/15 blur-[120px]" animate={{ x: [0, -50, 0], y: [0, 50, 0], scale: [1, 1.2, 1] }} transition={{ duration: 20, repeat: Infinity, delay: 2 }} />
+        <motion.div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full" style={{ background: 'radial-gradient(circle, rgba(139,92,246,0.04) 0%, transparent 65%)' }} animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 10, repeat: Infinity }} />
+
+        {/* Spinning decorative ring */}
+        <motion.div
+          className="absolute top-1/2 right-8 lg:right-16 -translate-y-1/2 w-[420px] h-[420px] rounded-full border border-primary/10 hidden lg:block"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
+        >
+          {[0, 90, 180, 270].map((deg) => (
+            <div key={deg} className="absolute w-3 h-3 rounded-full bg-primary/40" style={{ top: '50%', left: '50%', transform: `rotate(${deg}deg) translateX(210px) translateY(-50%)` }} />
+          ))}
+        </motion.div>
+        <motion.div
+          className="absolute top-1/2 right-8 lg:right-16 -translate-y-1/2 w-[520px] h-[520px] rounded-full border border-primary/5 hidden lg:block"
+          animate={{ rotate: -360 }}
+          transition={{ duration: 50, repeat: Infinity, ease: 'linear' }}
+        />
       </div>
 
       <div className="container max-w-7xl mx-auto w-full mt-16 sm:mt-0">
@@ -105,25 +122,30 @@ export const HeroSection = () => {
             </motion.div>
 
             <motion.h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight" variants={{ hidden: { y: 30, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.8 } } }}>
-              <span className="block text-foreground">I'm Murali Krishna</span>
+              <span className="block text-foreground">I'm Rajesh Bandi</span>
               <motion.span className="block bg-gradient-to-r from-primary via-purple-600 to-pink-600 bg-clip-text text-transparent mt-2" animate={{ backgroundPosition: ['0%', '100%', '0%'] }} transition={{ duration: 8, repeat: Infinity }} style={{ backgroundSize: '200% 100%' }}>
                 B.Tech CS Student
               </motion.span>
             </motion.h1>
 
             <motion.p className="text-lg sm:text-xl text-muted-foreground mt-6 leading-relaxed max-w-2xl" variants={{ hidden: { y: 30, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.8 } } }}>
-              Dedicated and enthusiastic <span className="text-primary font-semibold">B.Tech Computer Science student</span> with a strong foundation in programming and technology. Passionate about creating real-world solutions in Cloud, Full Stack Development and Cybersecurity.
+              Enthusiastic <span className="text-primary font-semibold">B.Tech Computer Science student</span> at SRKR Engineering College (CGPA 9.0/10). Passionate about building high-performance backend systems with Java & Spring Boot, containerized applications with Docker, and cloud deployments on AWS.
             </motion.p>
 
             <motion.div className="grid grid-cols-2 sm:grid-cols-4 gap-4 my-8" variants={{ hidden: { y: 30, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.8 } } }}>
               {achievements.map((achievement, index) => (
-                <div key={index} className="text-center p-4 rounded-xl bg-background/60 border border-border/50 backdrop-blur-sm hover:border-primary/30 transition-all duration-300">
-                  <div className="flex items-center justify-center gap-2 mb-2">
+                <motion.div
+                  key={index}
+                  className="text-center p-4 rounded-xl bg-background/60 border border-border/50 backdrop-blur-sm cursor-default"
+                  whileHover={{ scale: 1.06, borderColor: 'rgba(139,92,246,0.5)', boxShadow: '0 0 18px rgba(139,92,246,0.25)' }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+                >
+                  <div className="flex items-center justify-center gap-2 mb-2 text-primary">
                     {achievement.icon}
-                    <div className="text-2xl font-bold text-foreground">{achievement.number}</div>
+                    <div className="text-2xl font-bold text-foreground shimmer-text">{achievement.number}</div>
                   </div>
                   <div className="text-xs text-muted-foreground">{achievement.label}</div>
-                </div>
+                </motion.div>
               ))}
             </motion.div>
 
@@ -159,7 +181,9 @@ export const HeroSection = () => {
 
           <motion.div className="flex-1 flex justify-center lg:justify-end w-full" variants={{ hidden: { y: 30, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.8 } } }}>
             <div className="relative w-full max-w-md">
-              <motion.div className="bg-background/90 border border-border rounded-2xl p-8 backdrop-blur-sm shadow-2xl w-full group hover:shadow-3xl transition-all duration-500" whileHover={{ y: -4 }} transition={{ type: "spring", stiffness: 400, damping: 25 }}>
+              {/* Animated gradient border wrapper */}
+              <div className="gradient-border-animated p-[1px] rounded-2xl shadow-[0_0_30px_rgba(139,92,246,0.2)]">
+              <motion.div className="bg-background/95 border-0 rounded-2xl p-8 backdrop-blur-sm w-full group transition-all duration-500" whileHover={{ y: -4 }} transition={{ type: "spring", stiffness: 400, damping: 25 }}>
                 
                 <div className="flex items-center gap-4 mb-6">
                   <div className="flex gap-2">
@@ -228,6 +252,7 @@ export const HeroSection = () => {
                   <div className="text-sm font-bold text-foreground">Modern Tech</div>
                 </motion.div>
               </motion.div>
+              </div>
             </div>
           </motion.div>
         </motion.div>

@@ -28,11 +28,11 @@ const WelcomeScreen = ({ onWelcomeComplete }) => {
   };
 
   const currentColors = colors[theme] || colors.dark;
-  const portfolioUrl = "muraliq4.vercel.app";
+  const portfolioUrl = "github.com/Rajesh-bandi";
   const welcomeMessages = [
-    "Building innovative solutions",
-    "B.Tech CS Student",
-    "Web Development enthusiast"
+    "Rajesh Bandi Portfolio",
+    "B.Tech CS Student @ SRKR (CGPA 9.0/10)",
+    "Java, Spring Boot & Cloud Developer"
   ];
 
   useEffect(() => {

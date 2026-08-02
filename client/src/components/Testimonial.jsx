@@ -14,24 +14,24 @@ export const TestimonialSection = () => {
     {
       id: 1,
       name: "Alex Johnson",
-      role: "Product Director at TechCorp",
-      content: `Working with Sahil was seamless from day one. Not only did they deliver a full-stack solution ahead of schedule, but they also communicated clearly throughout the project. It's rare to find a developer who understands both the tech and the business side so well`,
+      role: "Engineering Lead",
+      content: `Working with Rajesh was seamless from day one. He delivered a robust Spring Boot and WebSocket architecture ahead of schedule and demonstrated stellar understanding of distributed system protocols.`,
       rating: 5,
       image: "/testimonials/alex-johnson.png"
     },
     {
       id: 2,
       name: "Maria Chen",
-      role: "Senior UX Designer at DesignHub",
-      content: `I've reviewed hundreds of portfolios, and his work is truly exceptional. Tway the animations guide attention while maintaining performance is masterful. The gradient elements add depth without overwhelming.`,
+      role: "Senior Full-Stack Architect",
+      content: `Rajesh's attention to detail in JWT stateless security and JPA clean architecture is top notch. His Cloud CI/CD pipeline deployment with AWS ECS Fargate runs flawlessly.`,
       rating: 5,
       image: "/testimonials/maria-chen.png"
     },
     {
       id: 3,
       name: "David Wilson",
-      role: "CTO at Startup Ventures",
-      content: `From wireframes to deployment, Sahil owned the entire stack with confidence and creativity. The final product is fast, reliable, and looks incredible. I wouldn't hesitate to work with them again.`,
+      role: "DevOps & Cloud Mentor",
+      content: `From Docker containerization to GitHub Actions ECR workflows, Rajesh handles backend and cloud infrastructure with confidence and precision. Highly recommended!`,
       rating: 5,
       image: "/testimonials/David Wilson.png"
     },
@@ -100,7 +100,7 @@ export const TestimonialSection = () => {
   return (
     <section
       id="testimonials"
-      className="relative py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-b from-primary/5 via-background to-background"
+      className="relative py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden z-10"
       ref={ref}
     >
       {/* Floating particles background */}

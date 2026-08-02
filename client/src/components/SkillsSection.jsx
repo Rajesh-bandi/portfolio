@@ -26,29 +26,46 @@ import SQLIcon from "@/assets/icons/sql.png";
 import MySQLIcon from "@/assets/icons/mysql.png";
 
 const skills = [
+  // Programming Languages
+  { name: "Java", level: 90, category: "languages", icon: "java" },
+  { name: "C", level: 80, category: "languages", icon: "java" },
+  { name: "JavaScript", level: 85, category: "languages", icon: "javascript" },
+  { name: "SQL", level: 85, category: "languages", icon: "sql" },
+
+  // Backend & APIs
+  { name: "Spring Boot", level: 90, category: "backend", icon: "java" },
+  { name: "Spring Security", level: 85, category: "backend", icon: "java" },
+  { name: "Spring Data JPA", level: 85, category: "backend", icon: "java" },
+  { name: "REST APIs", level: 90, category: "backend", icon: "express" },
+  { name: "JWT Auth", level: 85, category: "backend", icon: "cleark" },
+  { name: "WebSockets", level: 85, category: "backend", icon: "graphql" },
+
   // Frontend
-  { name: "HTML5", level: 85, category: "frontend", icon: "html" },
+  { name: "React.js", level: 85, category: "frontend", icon: "react" },
+  { name: "HTML5", level: 90, category: "frontend", icon: "html" },
   { name: "CSS3", level: 85, category: "frontend", icon: "css" },
-  { name: "JavaScript", level: 80, category: "frontend", icon: "javascript" },
 
-  // Backend & Languages
-  { name: "C", level: 75, category: "backend", icon: "python" },
-  { name: "Java", level: 80, category: "backend", icon: "java" },
-  { name: "Python", level: 80, category: "backend", icon: "python" },
-  { name: "MongoDB", level: 75, category: "backend", icon: "mongodb" },
+  // Databases, DevOps & Cloud
+  { name: "MySQL", level: 85, category: "devops", icon: "mysql" },
+  { name: "Docker", level: 85, category: "devops", icon: "docker" },
+  { name: "GitHub Actions", level: 85, category: "devops", icon: "github" },
+  { name: "Jenkins", level: 75, category: "devops", icon: "docker" },
+  { name: "AWS (ECS, ECR, EC2, ALB)", level: 85, category: "devops", icon: "firebase" },
 
-  // Tools & Frameworks
-  { name: "Bootstrap", level: 80, category: "tools", icon: "sass" },
-  { name: "Git", level: 75, category: "tools", icon: "git" },
-  { name: "GitHub", level: 75, category: "tools", icon: "github" },
-  { name: "VS Code", level: 85, category: "tools", icon: "vscode" },
+  // Tools & Core CS
+  { name: "Git & GitHub", level: 90, category: "tools", icon: "git" },
+  { name: "VS Code & IntelliJ", level: 90, category: "tools", icon: "vscode" },
+  { name: "DSA & OOP", level: 90, category: "tools", icon: "java" },
+  { name: "DBMS & Networks", level: 85, category: "tools", icon: "mysql" }
 ];
 
 const categories = [
   { id: "all", label: "All Skills", color: "bg-gradient-to-r from-purple-500 to-pink-500" },
-  { id: "frontend", label: "Frontend", color: "bg-gradient-to-r from-blue-500 to-cyan-500" },
-  { id: "backend", label: "Backend", color: "bg-gradient-to-r from-green-500 to-emerald-500" },
-  { id: "tools", label: "Tools", color: "bg-gradient-to-r from-orange-500 to-yellow-500" },
+  { id: "languages", label: "Languages", color: "bg-gradient-to-r from-blue-500 to-indigo-500" },
+  { id: "backend", label: "Backend & APIs", color: "bg-gradient-to-r from-green-500 to-emerald-500" },
+  { id: "frontend", label: "Frontend", color: "bg-gradient-to-r from-cyan-500 to-blue-500" },
+  { id: "devops", label: "DevOps & Cloud", color: "bg-gradient-to-r from-orange-500 to-amber-500" },
+  { id: "tools", label: "Tools & Core CS", color: "bg-gradient-to-r from-rose-500 to-red-500" },
 ];
 
 const iconImages = {
@@ -136,7 +153,7 @@ export const SkillsSection = () => {
   );
 
   return (
-    <section id="skills" className="py-28 px-4 bg-gradient-to-br from-background via-secondary/5 to-background">
+    <section id="skills" className="py-28 px-4 relative z-10">
       <div className="container mx-auto max-w-6xl">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}

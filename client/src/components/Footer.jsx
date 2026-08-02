@@ -1,12 +1,9 @@
 import {
   ArrowUp,
   Linkedin,
-  Instagram,
-  Youtube,
   Github,
   Mail,
   Phone,
-  MapPin,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -14,62 +11,51 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   const socialLinks = [
-    { icon: <Linkedin size={18} />, href: "https://www.linkedin.com/in/murali-sanaboina", label: "LinkedIn" },
-    { icon: <Instagram size={18} />, href: "https://www.instagram.com/murali.sanaboina?igsh=NWVxdXF6c3I0eGY0", label: "Instagram" },
-    { icon: <Github size={18} />, href: "https://github.com/muraliQ4", label: "GitHub" },
+    { icon: <Linkedin size={18} />, href: "https://www.linkedin.com/in/bandi-rajesh-5b401829a/", label: "LinkedIn" },
+    { icon: <Github size={18} />, href: "https://github.com/Rajesh-bandi", label: "GitHub" },
   ];
 
   const quickLinks = [
     { name: "Home", href: "#hero" },
     { name: "About", href: "#about" },
+    { name: "Skills", href: "#skills" },
     { name: "Work", href: "#projects" },
     { name: "Contact", href: "#contact" },
   ];
 
   const contactInfo = [
-    { icon: <Mail size={16} />, text: "sanaboina40170@gmail.com", href: "mailto:sanaboina40170@gmail.com" },
-    { icon: <Phone size={16} />, text: "+91 6303542567", href: "tel:+916303542567" },
+    { icon: <Mail size={16} />, text: "bandirajesh209@gmail.com", href: "mailto:bandirajesh209@gmail.com" },
+    { icon: <Phone size={16} />, text: "+91 9063939969", href: "tel:+919063939969" },
   ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
+    visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.2 } }
   };
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5
-      }
-    }
+    visible: { y: 0, opacity: 1, transition: { duration: 0.5 } }
   };
 
   return (
-    <footer className="px-6 py-12 mt-20">
+    <footer className="px-6 py-12 mt-20 relative z-10">
       <div className="max-w-6xl mx-auto">
-        {/* Glass background container */}
-        <motion.div 
-          className="backdrop-blur-lg bg-white/70 dark:bg-gray-900/70 rounded-xl p-8 border border-white/20 dark:border-gray-700/50 shadow-lg"
+        {/* Dark-mode-aware glass card using CSS var --card */}
+        <motion.div
+          className="backdrop-blur-xl bg-card/80 rounded-2xl p-8 border border-border/60 shadow-2xl"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={containerVariants}
         >
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-left">
+
             {/* Branding */}
             <motion.div variants={itemVariants} className="space-y-4">
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white">MURALI KRISHNA</h3>
-              <p className="text-gray-600 dark:text-gray-300 text-sm">
-                B.Tech CS Student creating innovative digital solutions.
+              <h3 className="text-xl font-bold text-foreground">RAJESH BANDI</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                B.Tech CS Student @ SRKR Engineering College (CGPA 9.0/10) specializing in Spring Boot &amp; Cloud Engineering.
               </p>
               <div className="flex space-x-4">
                 {socialLinks.map((social, index) => (
@@ -79,8 +65,8 @@ export const Footer = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.label}
-                    className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors duration-300"
-                    whileHover={{ y: -2 }}
+                    className="text-muted-foreground hover:text-primary transition-colors duration-300"
+                    whileHover={{ y: -2, scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                   >
                     {social.icon}
@@ -91,17 +77,17 @@ export const Footer = () => {
 
             {/* Navigation */}
             <motion.div variants={itemVariants}>
-              <h4 className="text-gray-900 dark:text-white font-medium mb-4 text-sm uppercase tracking-wider">Navigation</h4>
+              <h4 className="text-foreground font-semibold mb-4 text-sm uppercase tracking-wider">Navigation</h4>
               <ul className="space-y-3">
                 {quickLinks.map((link, index) => (
-                  <motion.li 
+                  <motion.li
                     key={index}
-                    whileHover={{ x: 2 }}
+                    whileHover={{ x: 4 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
-                    <a 
-                      href={link.href} 
-                      className="hover:text-gray-900 dark:hover:text-white transition-colors duration-300 text-sm text-gray-600 dark:text-gray-300"
+                    <a
+                      href={link.href}
+                      className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300"
                     >
                       {link.name}
                     </a>
@@ -112,73 +98,64 @@ export const Footer = () => {
 
             {/* Contact */}
             <motion.div variants={itemVariants}>
-              <h4 className="text-gray-900 dark:text-white font-medium mb-4 text-sm uppercase tracking-wider">Contact</h4>
+              <h4 className="text-foreground font-semibold mb-4 text-sm uppercase tracking-wider">Contact</h4>
               <ul className="space-y-3">
                 {contactInfo.map((info, index) => (
-                  <motion.li 
+                  <motion.li
                     key={index}
                     className="flex items-start space-x-3 text-sm"
                     whileHover={{ scale: 1.02 }}
                   >
-                    <span className="text-gray-600 dark:text-gray-400 mt-0.5">{info.icon}</span>
+                    <span className="text-primary mt-0.5">{info.icon}</span>
                     {info.href ? (
-                      <a 
-                        href={info.href} 
-                        className="hover:text-gray-900 dark:hover:text-white transition-colors duration-300 text-gray-600 dark:text-gray-300"
+                      <a
+                        href={info.href}
+                        className="text-muted-foreground hover:text-primary transition-colors duration-300"
                       >
                         {info.text}
                       </a>
                     ) : (
-                      <span className="text-gray-600 dark:text-gray-300">{info.text}</span>
+                      <span className="text-muted-foreground">{info.text}</span>
                     )}
                   </motion.li>
                 ))}
               </ul>
             </motion.div>
 
-            {/* Newsletter */}
+            {/* Education */}
             <motion.div variants={itemVariants} className="space-y-4">
-              <h4 className="text-gray-900 dark:text-white font-medium text-sm uppercase tracking-wider">Newsletter</h4>
-              <p className="text-gray-600 dark:text-gray-300 text-sm">
-                Subscribe to get updates on my latest work.
+              <h4 className="text-foreground font-semibold text-sm uppercase tracking-wider">Education &amp; Status</h4>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                B.Tech CSE (2023 – 2027)<br />
+                SRKR Engineering College<br />
+                <span className="font-semibold text-primary">CGPA: 9.0 / 10</span>
               </p>
-              <form className="space-y-3">
-                <input 
-                  type="email" 
-                  placeholder="Your email" 
-                  className="px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 dark:bg-gray-800/50 rounded-md focus:outline-none focus:ring-1 focus:ring-gray-900 dark:focus:ring-gray-300 focus:border-gray-900 dark:focus:border-gray-300 w-full"
-                  required
-                />
-                <button 
-                  type="submit"
-                  className="bg-gray-900 hover:bg-gray-800 dark:bg-white dark:hover:bg-gray-200 dark:text-gray-900 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-300 w-full"
-                >
-                  Subscribe
-                </button>
-              </form>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-500 font-medium">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                Open to Internships
+              </div>
             </motion.div>
           </div>
 
           {/* Bottom bar */}
-          <motion.div 
-            className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700/50 flex flex-col items-center text-xs text-gray-600 dark:text-gray-400 space-y-4 sm:space-y-0 sm:flex-row sm:justify-between"
+          <motion.div
+            className="mt-10 pt-6 border-t border-border/50 flex flex-col items-center text-xs text-muted-foreground space-y-4 sm:space-y-0 sm:flex-row sm:justify-between"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <div className="flex items-center space-x-6">
-              <a href="#" className="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy</a>
-              <a href="#" className="hover:text-gray-900 dark:hover:text-white transition-colors">Terms</a>
-              <a href="#" className="hover:text-gray-900 dark:hover:text-white transition-colors">Cookies</a>
+            <span>© {currentYear} Rajesh Bandi. All rights reserved.</span>
+            <div className="flex items-center space-x-4">
+              <span className="text-muted-foreground/60">Built with React &amp; Spring Boot</span>
               <motion.a
                 href="#hero"
                 aria-label="Back to top"
-                className="p-2 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300"
-                whileHover={{ y: -3 }}
+                className="p-2 rounded-full bg-primary text-primary-foreground hover:shadow-[0_0_12px_rgba(139,92,246,0.5)] transition-all duration-300"
+                whileHover={{ y: -3, scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <ArrowUp size={16} />
+                <ArrowUp size={14} />
               </motion.a>
             </div>
           </motion.div>

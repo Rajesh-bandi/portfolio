@@ -129,22 +129,25 @@ export const Navbar = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.3 }}
       >
-        <div className="flex items-center justify-center bg-white/80 dark:bg-black/80 backdrop-blur-md rounded-full shadow-lg p-2 border border-gray-200 dark:border-gray-700">
+        <div className="flex items-center justify-center bg-white/60 dark:bg-black/60 backdrop-blur-xl rounded-full shadow-2xl p-2 border border-white/30 dark:border-white/10 ring-1 ring-primary/10">
           <div className="flex space-x-1 items-center">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
                 className={cn(
-                  "p-2 rounded-full transition-colors flex flex-col items-center",
+                  "p-2 rounded-full transition-all duration-200 flex flex-col items-center relative",
                   activeSection === item.href
-                    ? "bg-primary text-white"
-                    : "text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary"
+                    ? "bg-primary text-white shadow-[0_0_12px_rgba(139,92,246,0.5)]"
+                    : "text-gray-600 hover:text-primary hover:bg-primary/10 dark:text-gray-300 dark:hover:text-primary"
                 )}
                 aria-label={item.name}
               >
                 <item.icon className="w-5 h-5" />
                 <span className="text-xs mt-1 hidden md:block">{item.name}</span>
+                {activeSection === item.href && (
+                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-white opacity-80" />
+                )}
               </a>
             ))}
             <div className="flex items-center px-2">
