@@ -1,117 +1,93 @@
-import {
-  Linkedin,
-  Mail,
-  MapPin,
-  Phone,
-  Github,
-  ExternalLink,
-  Sparkles,
-  MessageSquare
-} from "lucide-react";
-import { motion } from "framer-motion";
+import { contact, identity } from "@/content/profile";
+import Reveal from "@/components/Reveal";
 
 export const ContactSection = () => {
+  const channels = [
+    { label: "Email", value: identity.email, href: `mailto:${identity.email}` },
+    { label: "Phone", value: identity.phone, href: `tel:${identity.phone.replace(/\s/g, "")}` },
+    { label: "Location", value: identity.location, href: null },
+  ];
+
   return (
-    <section id="contact" className="py-16 sm:py-24 px-4 sm:px-6 relative bg-background overflow-hidden grid-bg z-10">
-      <div className="container mx-auto max-w-4xl relative z-10">
-        <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-            <Sparkles className="h-4 w-4" />
-            Let's Connect
-          </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600">
-            Get In Touch
-          </h2>
-          <p className="text-base sm:text-lg text-muted-foreground max-w-xl mx-auto">
-            Open to software development opportunities, backend projects, and technical collaborations. Reach out directly via email or phone!
-          </p>
-        </div>
+    <section id="contact" className="section-block border-t border-edge">
+      <div className="section-shell">
+        <Reveal>
+          <p className="eyebrow">04 — Contact</p>
 
-        {/* Contact Details Grid */}
-        <div className="bg-card border border-border rounded-3xl p-8 sm:p-12 shadow-2xl backdrop-blur-xl space-y-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Email Card */}
-            <motion.a
-              href="mailto:bandirajesh209@gmail.com"
-              whileHover={{ y: -4, scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="p-6 rounded-2xl bg-primary/5 border border-primary/20 hover:border-primary/50 transition-all flex flex-col items-center text-center group"
-            >
-              <div className="p-4 rounded-2xl bg-primary/10 text-primary mb-4 group-hover:scale-110 transition-transform">
-                <Mail className="h-6 w-6" />
-              </div>
-              <h3 className="text-sm text-muted-foreground font-medium mb-1">Email</h3>
-              <p className="text-sm font-semibold text-foreground break-all group-hover:text-primary transition-colors">
-                bandirajesh209@gmail.com
-              </p>
-              <span className="text-xs text-primary font-medium mt-3 inline-flex items-center gap-1">
-                Send Email <ExternalLink size={12} />
-              </span>
-            </motion.a>
-
-            {/* Phone Card */}
-            <motion.a
-              href="tel:+919063939969"
-              whileHover={{ y: -4, scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="p-6 rounded-2xl bg-primary/5 border border-primary/20 hover:border-primary/50 transition-all flex flex-col items-center text-center group"
-            >
-              <div className="p-4 rounded-2xl bg-primary/10 text-primary mb-4 group-hover:scale-110 transition-transform">
-                <Phone className="h-6 w-6" />
-              </div>
-              <h3 className="text-sm text-muted-foreground font-medium mb-1">Phone</h3>
-              <p className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
-                +91 9063939969
-              </p>
-              <span className="text-xs text-primary font-medium mt-3 inline-flex items-center gap-1">
-                Call / WhatsApp <ExternalLink size={12} />
-              </span>
-            </motion.a>
-
-            {/* Location Card */}
-            <div className="p-6 rounded-2xl bg-primary/5 border border-primary/20 flex flex-col items-center text-center">
-              <div className="p-4 rounded-2xl bg-primary/10 text-primary mb-4">
-                <MapPin className="h-6 w-6" />
-              </div>
-              <h3 className="text-sm text-muted-foreground font-medium mb-1">Location</h3>
-              <p className="text-sm font-semibold text-foreground">
-                Andhra Pradesh, India
-              </p>
-              <span className="text-xs text-muted-foreground mt-3">
-                SRKR Engineering College
-              </span>
-            </div>
-          </div>
-
-          {/* Social Profiles */}
-          <div className="pt-6 border-t border-border text-center">
-            <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-4">Connect On Social Platforms</h4>
-            <div className="flex justify-center gap-4">
-              <motion.a
-                href="https://www.linkedin.com/in/bandi-rajesh-5b401829a/"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 rounded-xl bg-background border border-border text-foreground hover:border-primary hover:text-primary font-medium text-sm flex items-center gap-2 transition-all shadow-sm"
+          <a href={`mailto:${identity.email}`} className="group mt-6 block">
+            <h2 className="max-w-4xl text-4xl font-semibold leading-[1.1] tracking-tight transition-transform duration-500 group-hover:translate-x-2 sm:text-5xl lg:text-6xl">
+              {contact.title}
+            </h2>
+            <p className="email-link mt-8 inline-flex items-center gap-3 text-lg text-dim transition-colors group-hover:text-ink">
+              {identity.email}
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 12 12"
+                fill="none"
+                aria-hidden="true"
+                className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
               >
-                <Linkedin size={18} className="text-blue-500" />
-                <span>LinkedIn Profile</span>
-              </motion.a>
+                <path
+                  d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8"
+                  stroke="currentColor"
+                  strokeWidth="1.2"
+                  strokeLinecap="square"
+                />
+              </svg>
+            </p>
+          </a>
+        </Reveal>
 
-              <motion.a
-                href="https://github.com/Rajesh-bandi"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 rounded-xl bg-background border border-border text-foreground hover:border-primary hover:text-primary font-medium text-sm flex items-center gap-2 transition-all shadow-sm"
-              >
-                <Github size={18} />
-                <span>GitHub Repositories</span>
-              </motion.a>
-            </div>
+        <Reveal delay={100}>
+          <div className="mt-16 grid gap-px border border-edge bg-edge sm:grid-cols-3">
+            {channels.map((channel) => {
+              const body = (
+                <>
+                  <p className="eyebrow">{channel.label}</p>
+                  <p className="mt-3 text-sm font-medium sm:text-base">{channel.value}</p>
+                </>
+              );
+              return channel.href ? (
+                <a
+                  key={channel.label}
+                  href={channel.href}
+                  className="lift bg-background p-6 transition-colors hover:bg-raised"
+                >
+                  {body}
+                </a>
+              ) : (
+                <div key={channel.label} className="bg-background p-6">
+                  {body}
+                </div>
+              );
+            })}
           </div>
+        </Reveal>
+
+        <div className="mt-10 flex flex-wrap items-center gap-6">
+          <a
+            href={identity.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-xs text-dim transition-colors hover:text-ink"
+          >
+            github →
+          </a>
+          <a
+            href={identity.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-xs text-dim transition-colors hover:text-ink"
+          >
+            linkedin →
+          </a>
+          {identity.available && (
+            <span className="ml-auto inline-flex items-center gap-2 font-mono text-xs text-faint">
+              <span className="animate-pulse-dot h-1.5 w-1.5 rounded-full bg-emerald-400" />
+              usually replies within a day
+            </span>
+          )}
         </div>
       </div>
     </section>

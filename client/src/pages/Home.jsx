@@ -1,33 +1,42 @@
-import { Navbar } from "../components/Navbar";
-import { StarBackground } from "@/components/StarBackground";
-import { HeroSection } from "../components/HeroSection";
-import { AboutSection } from "../components/AboutSection";
-import { SkillsSection } from "../components/SkillsSection";
-import { ProjectsSection } from "../components/ProjectsSection";
-import { ContactSection } from "../components/ContactSection";
-import { Footer } from "../components/Footer";
+import { Navbar } from "@/components/Navbar";
+import Backdrop from "@/components/Backdrop";
+import Marquee from "@/components/Marquee";
+import { HeroSection } from "@/components/HeroSection";
+import { AboutSection } from "@/components/AboutSection";
+import { SkillsSection } from "@/components/SkillsSection";
+import { ProjectsSection } from "@/components/ProjectsSection";
+import { ContactSection } from "@/components/ContactSection";
+import { Footer } from "@/components/Footer";
 
-export const Home = () => {
+const STACK = [
+  "Java",
+  "Spring Boot",
+  "Spring Security",
+  "React",
+  "Docker",
+  "AWS ECS",
+  "GitHub Actions",
+  "WebSockets",
+  "MySQL",
+  "Git",
+  "REST APIs",
+  "JWT",
+];
+
+export default function Home() {
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      {/* Theme Toggle */}
-      {/* Background Effects */}
-      <StarBackground />
-
-      {/* Navbar */}
+    <div className="min-h-screen bg-background text-ink">
+      <Backdrop />
       <Navbar />
-      {/* Main Content */}
       <main>
         <HeroSection />
         <AboutSection />
+        <Marquee items={STACK} />
         <SkillsSection />
         <ProjectsSection />
         <ContactSection />
-        
       </main>
-
-      {/* Footer */}
       <Footer />
     </div>
   );
-};
+}
